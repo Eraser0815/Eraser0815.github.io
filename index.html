@@ -23,6 +23,13 @@
             font-size: 35px;
         }
     </style>
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js', { scope: '/' });
+            document.getElementById("anzeige").innerHTML = "Service worker registriert!!";
+            console.log(navigator);
+        }
+    </script>
 </body>
 
 </html>
