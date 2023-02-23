@@ -1,5 +1,7 @@
 // Use the install event to pre-cache all initial resources.
 // source == https://learn.microsoft.com/de-de/microsoft-edge/progressive-web-apps-chromium/how-to/
+const CACHE_NAME = `temperature-converter-v1`;
+
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
