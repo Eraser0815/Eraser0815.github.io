@@ -1,0 +1,17 @@
+{
+  "lang": "de-DE",
+  "name": "Tradingdiray app",
+  "short_name": "Tradingdiray",
+  "description": "Ein Tradingjournal",
+  "start_url": "/",
+  "background_color": "#bcd3dc;",
+  "theme_color": "#2f3d58",
+  "orientation": "any",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./favicon.png",
+      "sizes": "512x512"
+    }
+  ]
+}
