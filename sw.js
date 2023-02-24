@@ -1,6 +1,8 @@
 // Use the install event to pre-cache all initial resources.
 // source == https://learn.microsoft.com/de-de/microsoft-edge/progressive-web-apps-chromium/how-to/
-const CACHE_NAME = `temperature-converter-v1`;
+const CACHE_NAME = `temperature-converter-v2`;
+// self TEST:
+console.log("SELF:",self);
 // servicWorker registrieren:
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js', { scope: '/' })
@@ -10,17 +12,18 @@ if ('serviceWorker' in navigator) {
 
 
 self.addEventListener('install', event => {
-    console.log("sw Install EVENT");
-    event.waitUntil((async () => {
+    console.log("sw Install EVENT: ",event);
+    event.waitUntil((async () => { 
     const cache = await caches.open(CACHE_NAME);
     cache.addAll([
       '/',      
     ]);
+    console.log("Install EVENT done, cache opend: ", cache);
   })());
 });
 
 self.addEventListener('fetch', event => {
-    console.log("sw fetch EVENT");
+    console.log("sw fetch EVENT: ",event);
 
     event.respondWith((async () => {
         const cache = await caches.open(CACHE_NAME);
@@ -45,12 +48,12 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
-    console.log("sw activate EVENT");
-
+    console.log("sw activate EVENT: ",event);
+    // clients.claim().then(...) --> damit der sw beim ersten pageload schon richtig arbeitet! 
 })
 
 self.addEventListener('message', event => {
-    console.log("sw message EVENT");
+    console.log("sw message EVENT: ", event);
 
 })
 
