@@ -2,7 +2,7 @@
 // source == https://learn.microsoft.com/de-de/microsoft-edge/progressive-web-apps-chromium/how-to/
 const CACHE_NAME = `temperature-converter-v2`;
 // self TEST:
-console.log("SELF:",self);
+console.log("SELF_sw:",self);
 // servicWorker registrieren:
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js', { scope: '/' })
