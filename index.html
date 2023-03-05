@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="shortcut icon" href="/Icons/Tagbuch_Icon_black_217mm.png" />
+    <link rel="shortcut icon" href="Icons/TagebucIcon_transparent_256px.png" />
     <link rel="manifest" href="/manifest.json">
+    <script type="text/javascript" src="/IndexJS.js"></script>
+    <!-- <link href="/php.php"> -->
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
     <title>GitHub Test</title>
 
@@ -15,7 +17,35 @@
         <p>Das ist ein HTTPs Test für sw.js</p>
     </div>
     <p id="anzeige"></p>
+    <textarea placeholder="BspText"></textarea>
+    <span id="btnwrapper">
+        <button>save to file</button>
+        <button>load from file</button>
+        <button>safe to cache</button>
+        <button>load from cache</button>
+    </span>
 
+    <form id="TestForm" method="post" action="/php.php">
+        <label for="name">Name:</label>
+        <input id="name" type="text"></button>
+        <label for="pass">Pass:</label>
+        <input is="pass" type="password"></button>
+        <input type="submit"></input>
+    </form>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <style>
         #container, #anzeige {
             text-align: center;
@@ -25,8 +55,30 @@
         #anzeige{
             color: rgb(114, 5, 5);
         }
+        textarea{    
+            width: 20%;
+            margin: auto;
+            display: block;
+            height: 100px;
+        }
+        #btnwrapper{
+            /* background-color: pink; */
+            display: block;
+            width: 20%;
+            margin: auto;
+        }
+        #btnwrapper button{
+            width: 50px;
+            margin: 5px 13.5%;
+            width: 22%;
+        }
+
+        form{
+            margin: 3rem auto;
+            width: 35%;
+        }
     </style>
-    <script>console.log("SELF_Index:",self);</script>
+    <!-- <script>console.log("SELF_Index:",self);</script> -->
 </body>
 
 </html>

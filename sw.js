@@ -1,6 +1,6 @@
 // Use the install event to pre-cache all initial resources.
 // source == https://learn.microsoft.com/de-de/microsoft-edge/progressive-web-apps-chromium/how-to/
-const CACHE_NAME = `temperature-converter-v2`;
+const CACHE_NAME = `TAGEBUCHTEST_V1`;
 // self TEST:
 console.log("SELF_sw:",self);
 // servicWorker registrieren:
@@ -41,7 +41,7 @@ self.addEventListener('fetch', event => {
                 cache.put(event.request, fetchResponse.clone());
                 return fetchResponse;
             } catch (e) {
-                // The network failed.
+                console.error("SW FEHLER:",e);
             }
         }
     })());
