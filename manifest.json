@@ -8,6 +8,11 @@
   "theme_color": "#2f3d58",
   "orientation": "any",
   "display": "standalone",
+  
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
+  
   "icons": [
     {
       "src": "Icons/TagebucIcon_transparent_256px.png",
