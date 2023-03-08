@@ -9,13 +9,13 @@
     <meta name="description" content="Ein modernes Web basiertes Trading Journal." />
     
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; "/> -->
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()"> <!-- um 'Joomla! (das ist für Werbung) zu blockieren -> Depracted anyway '-->
     
     <link rel="shortcut icon" href="Icons/TagebucIcon_transparent_256px.png" />
     <link rel="manifest" href="/manifest.json">
     
-    <script type="text/javascript" src="IndexJS.js" defer></script> 
-    <script type="text/javascript" src="IndexJS.js" defer></script> 
-    <!-- <meta http-equiv="Permissions-Policy" content="interest-cohort=()"> -->
+    <!-- <script type="text/javascript" src="IndexJS.js" defer></script>  -->
+    <script type="text/javascript" src="Index_TEST_JS.js" defer></script> 
 
 </head>
 <body>
@@ -32,6 +32,15 @@
     </span>
 
     <style>
+        @media all and (display-mode: standalone) {
+            body {
+                background-color: darkseagreen;
+            }
+        }
+
+
+
+
         #container, #anzeige {
             text-align: center;
             font-weight: bold;
@@ -69,11 +78,11 @@
             margin-top: 5rem;
         }
     </style>
-    <script>
-        // servicWorker registrieren:
+    <script> // servicWorker registrieren:
+        
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js', { scope: '/' })
-            .then(a => document.getElementById("anzeige").innerHTML = "Service worker registriert!!\n" + a);
+            .then(a => document.getElementById("anzeige").innerHTML = "Service worker registriert!!");
             console.log("Service worker registriert!!");
         }
     </script>

@@ -26,7 +26,8 @@ const FILEHandel = {
         console.log("saving data....", JSON.stringify(data));
     }
 }; 
-/* only for index.html/js */
+
+
 !function addListeners(){
     /* 1:  init*/   
     console.log("Funktionsaufruf: 'addListeners'...");
@@ -35,11 +36,25 @@ const FILEHandel = {
     /* 2:  read file*/
     document.getElementById("CDbtn").addEventListener('click', FILEHandel.read);
 
-    /* 3: BeforeUnloadEvent */
+    /* 3: BeforeUnloadEvent des Browsers. Um alles im File zu speichern */
     window.addEventListener("beforeunload", FILEHandel.save)
     
-    /* 4: save to file  */
+    /* 4: save to file button  */
     document.getElementById("savebtn").addEventListener("click", FILEHandel.save)
+
+    /* 5: beforeinstallpromt -> Bevor der user die App Installiert! */
+    window.addEventListener('beforeinstallprompt', (e) => {
+        let Button = `<button class="normalBtn">Install PWA</button>`;
+        // Prevent the mini-infobar from appearing on mobile
+        e.preventDefault();
+        FILEHandel.PWAInstallPromt = e;
+        console.log("App instalation preventet : ",e);
+        document.getElementById("anzeige").append(Button);
+    });
+    /* 6: Wenn die PWA installiert wurde */
+    window.addEventListener('appinstalled', (e) => {
+        console.log("PWA installiert!! ", e);
+    });
 }();
 
 
@@ -56,7 +71,7 @@ const FILEHandel = {
 
 
 window.onload = (e)=>{
-    console.log("Seite vollständig geladen", FILEHandel);
+    // console.log("Seite vollständig geladen", FILEHandel);
 }
 
 

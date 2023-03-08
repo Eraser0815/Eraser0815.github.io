@@ -42,6 +42,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
+    /* event.target == SWGlobalScope */
     console.log("sw activate EVENT: ",event);
     // clients.claim().then(...) --> damit der sw beim ersten pageload schon richtig arbeitet! 
 });
