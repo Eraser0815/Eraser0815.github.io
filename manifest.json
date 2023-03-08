@@ -7,11 +7,12 @@
   "background_color": "green",
   "theme_color": "#2f3d58",
   "orientation": "any",
-  "display": "standalone", 
+  "display": "standalone",
   "icons": [
     {
       "src": "Icons/TagebucIcon_transparent_256px.png",
       "sizes": "256x256"
     }
-  ]
+  ],
+  "permissions": ["clipboardRead"]
 }

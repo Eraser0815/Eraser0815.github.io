@@ -2,9 +2,9 @@
 // Use the install event to pre-cache all initial resources.
 // source == https://learn.microsoft.com/de-de/microsoft-edge/progressive-web-apps-chromium/how-to/
 const CACHE_NAME = `TAGEBUCHTEST_V1`;
-// self TEST:
-console.log("SELF_sw:",self);
 
+console.log("SELF_sw; SW_Global-skope:",self);
+/* Wenn der SW 'installiert' wird. Target == SWGlobalScope */
 self.addEventListener('install', event => {
     console.log("sw Install EVENT: ",event);
     event.waitUntil((async () => { 
@@ -50,7 +50,3 @@ self.addEventListener('message', event => {
     console.log("sw message EVENT: ", event);
 
 });
-self.addEventListener('install',event=>{
-    console.log("sw install EVENT: ", event);
-})
-
