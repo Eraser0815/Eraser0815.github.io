@@ -2,14 +2,20 @@
 
 <html lang="de" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <title>--Trading Tagebuch--</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Michael Ludolph" />
+    <meta name="description" content="Ein modernes Web basiertes Trading Journal." />
+    
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; "/> -->
+    
     <link rel="shortcut icon" href="Icons/TagebucIcon_transparent_256px.png" />
     <link rel="manifest" href="/manifest.json">
-    <script type="text/javascript" src="/IndexJS.js"></script>
-    <!-- <link href="/php.php"> -->
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-    <title>GitHub Test</title>
+    
+    <script type="text/javascript" src="IndexJS.js" defer></script> 
+    <script type="text/javascript" src="IndexJS.js" defer></script> 
+    <!-- <meta http-equiv="Permissions-Policy" content="interest-cohort=()"> -->
 
 </head>
 <body>
@@ -19,33 +25,12 @@
     <p id="anzeige"></p>
     <textarea placeholder="BspText"></textarea>
     <span id="btnwrapper">
-        <button>save to file</button>
-        <button>load from file</button>
-        <button>safe to cache</button>
-        <button>load from cache</button>
+        <button>Open last diary</button>
+        <button id="CDbtn">create Directory</button>
+        <button id="savebtn">safe to file</button>
+        <!-- <button>load from cache</button> -->
     </span>
 
-    <form id="TestForm" method="post" action="/php.php">
-        <label for="name">Name:</label>
-        <input id="name" type="text"></button>
-        <label for="pass">Pass:</label>
-        <input is="pass" type="password"></button>
-        <input type="submit"></input>
-    </form>
-    
-    
-  <a id='link' href='https://eraser0815.github.io/' target='_blank'>Tagebuch öffnen</a>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <style>
         #container, #anzeige {
             text-align: center;
@@ -84,7 +69,15 @@
             margin-top: 5rem;
         }
     </style>
-    <!-- <script>console.log("SELF_Index:",self);</script> -->
+    <script>
+        // servicWorker registrieren:
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(a => document.getElementById("anzeige").innerHTML = "Service worker registriert!!\n" + a);
+            console.log("Service worker registriert!!");
+        }
+    </script>
+    
 </body>
 
 </html>
