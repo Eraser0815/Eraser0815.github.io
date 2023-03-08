@@ -4,13 +4,6 @@
 const CACHE_NAME = `TAGEBUCHTEST_V1`;
 // self TEST:
 console.log("SELF_sw:",self);
-// servicWorker registrieren:
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js', { scope: '/' })
-        .then(a => document.getElementById("anzeige").innerHTML = "Service worker registriert!!\n" + a);
-    console.log(navigator);
-}
-
 
 self.addEventListener('install', event => {
     console.log("sw Install EVENT: ",event);
