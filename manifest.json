@@ -7,12 +7,7 @@
   "background_color": "green",
   "theme_color": "#2f3d58",
   "orientation": "any",
-  "display": "standalone",
-  
-  "launch_handler": {
-    "client_mode": "focus-existing"
-  }
-  
+  "display": "standalone", 
   "icons": [
     {
       "src": "Icons/TagebucIcon_transparent_256px.png",
