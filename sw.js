@@ -1,3 +1,4 @@
+'use strict'
 // Use the install event to pre-cache all initial resources.
 // source == https://learn.microsoft.com/de-de/microsoft-edge/progressive-web-apps-chromium/how-to/
 const CACHE_NAME = `TAGEBUCHTEST_V1`;
@@ -50,10 +51,14 @@ self.addEventListener('fetch', event => {
 self.addEventListener('activate', event => {
     console.log("sw activate EVENT: ",event);
     // clients.claim().then(...) --> damit der sw beim ersten pageload schon richtig arbeitet! 
-})
+});
 
 self.addEventListener('message', event => {
     console.log("sw message EVENT: ", event);
 
+});
+self.addEventListener('install',event=>{
+    console.log("sw install EVENT: ", event);
 })
+
 
