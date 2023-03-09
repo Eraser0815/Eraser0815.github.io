@@ -1,4 +1,7 @@
 "use strict";
+const PWA = {
+    isInstalled : ()=>{return window.matchMedia('(display-mode: standalone)').matches}
+}
 const FILEHandel = {
     url : "file:///C:/Users/MichasDESKTOP/Documents/TagebuchTEST/speicherTEST.txt",
     // url : "../Documents/TagebuchTEST",
@@ -44,16 +47,18 @@ const FILEHandel = {
 
     /* 5: beforeinstallpromt -> Bevor der user die App Installiert! */
     window.addEventListener('beforeinstallprompt', (e) => {
-        let Button = `<button class="normalBtn">Install PWA</button>`;
         // Prevent the mini-infobar from appearing on mobile
         e.preventDefault();
-        FILEHandel.PWAInstallPromt = e;
+        // für später speichern:
+        PWA.PWAInstallPromt = e;
         console.log("App instalation preventet : ",e);
-        document.getElementById("anzeige").insertAdjacentHTML("afterend",Button);
-    });
+        // Install button einfügen.
+        document.getElementById("anzeige").insertAdjacentHTML("afterend",`<button class="normalBtn">Install PWA</button>`);
+});
     /* 6: Wenn die PWA installiert wurde */
     window.addEventListener('appinstalled', (e) => {
         console.log("PWA installiert!! ", e);
+       
     });
 }();
 
@@ -71,7 +76,9 @@ const FILEHandel = {
 
 
 window.onload = (e)=>{
-    // console.log("Seite vollständig geladen", FILEHandel);
+    // console.log("Seite vollständig geladen", e);
+    // document.getElementById("anzeige").insertAdjacentHTML("afterend",`<button class="normalBtn">Install PWA</button>`);
+    // console.log(document.getElementsByClassName("normalBtn")[0]);
 }
 
 
