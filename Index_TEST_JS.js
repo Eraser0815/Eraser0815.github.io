@@ -49,7 +49,7 @@ const FILEHandel = {
         e.preventDefault();
         FILEHandel.PWAInstallPromt = e;
         console.log("App instalation preventet : ",e);
-        document.getElementById("anzeige").append(Button);
+        document.getElementById("anzeige").insertAdjacentHTML("afterend",Button);
     });
     /* 6: Wenn die PWA installiert wurde */
     window.addEventListener('appinstalled', (e) => {
