@@ -3,7 +3,7 @@
 // source == https://learn.microsoft.com/de-de/microsoft-edge/progressive-web-apps-chromium/how-to/
 const CACHE_NAME = `TAGEBUCHTEST_V1`;
 
-console.log("SELF_sw; SW_Global-skope:",self);
+console.log("sw.clients:",self.clients);
 /* Wenn der SW 'installiert' wird. Target == SWGlobalScope */
 self.addEventListener('install', event => {
     console.log("sw Install EVENT: ",event);
@@ -26,6 +26,7 @@ self.addEventListener('fetch', event => {
         const cachedResponse = await cache.match(event.request);
         if (cachedResponse) {
             return cachedResponse;
+            console.log("cache respondet!",cachedResponse);
         } else {
             try {
                 // If the resource was not in the cache, try the network.
@@ -35,7 +36,7 @@ self.addEventListener('fetch', event => {
                 cache.put(event.request, fetchResponse.clone());
                 return fetchResponse;
             } catch (e) {
-                console.error("SW FEHLER:",e);
+                console.error("SW fetch FEHLER:",e);
             }
         }
     })());
@@ -51,3 +52,7 @@ self.addEventListener('message', event => {
     console.log("sw message EVENT: ", event);
 
 });
+
+self.addEventListener('notificationclick',(e)=>{
+    console.log('sw_notificationclick EVENT',e);
+})
