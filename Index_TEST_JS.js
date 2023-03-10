@@ -1,6 +1,10 @@
 "use strict";
 const PWA = {
-    isInstalled : ()=>{return window.matchMedia('(display-mode: standalone)').matches}
+    isInstalled : ()=>{return window.matchMedia('(display-mode: standalone)').matches},
+    InstallButtonClick : (elem)=>{
+        console.log("der Install Button wrude geklickt!!", elem);
+        PWA.PWAInstallPromt.promt();
+    }
 }
 const FILEHandel = {
     url : "file:///C:/Users/MichasDESKTOP/Documents/TagebuchTEST/speicherTEST.txt",
@@ -26,14 +30,14 @@ const FILEHandel = {
         saveHandle.write(JSON.stringify(data));
         saveHandle.close();
         
-        console.log("saving data....", JSON.stringify(data));
+       window.alert("saving data....", JSON.stringify(data));
     }
 }; 
 
 
 !function addListeners(){
-    /* 1:  init*/   
     console.log("Funktionsaufruf: 'addListeners'...");
+    /* 1:  init*/   
     document.querySelectorAll("#btnwrapper button")[0].addEventListener("click",FILEHandel.init);
 
     /* 2:  read file*/
@@ -45,7 +49,7 @@ const FILEHandel = {
     /* 4: save to file button  */
     document.getElementById("savebtn").addEventListener("click", FILEHandel.save)
 
-    /* 5: beforeinstallpromt -> Bevor der user die App Installiert! */
+    /* 5: beforeinstallpromt -> Bevor der user die PWA Installiert! */
     window.addEventListener('beforeinstallprompt', (e) => {
         // Prevent the mini-infobar from appearing on mobile
         e.preventDefault();
@@ -54,12 +58,20 @@ const FILEHandel = {
         console.log("App instalation preventet : ",e);
         // Install button einfügen.
         document.getElementById("anzeige").insertAdjacentHTML("afterend",`<button class="normalBtn">Install PWA</button>`);
-});
+    });
     /* 6: Wenn die PWA installiert wurde */
     window.addEventListener('appinstalled', (e) => {
         console.log("PWA installiert!! ", e);
        
     });
+    /* 7: Der 'PWA install' Button der bei Schritt 5 erstellt wurde */
+    /* using event delegation on body-tag */
+    document.body.addEventListener("click",(e)=>{
+        // console.log('click on: ',e.target, e.target.matches('button.normalBtn'));
+        e.target.matches('button.normalBtn') ? PWA.InstallButtonClick(e.target):console.log("war nicht der Button. sondern:",e.target);;
+    });
+
+    
 }();
 
 
@@ -77,7 +89,7 @@ const FILEHandel = {
 
 window.onload = (e)=>{
     // console.log("Seite vollständig geladen", e);
-    // document.getElementById("anzeige").insertAdjacentHTML("afterend",`<button class="normalBtn">Install PWA</button>`);
+    document.getElementById("anzeige").insertAdjacentHTML("afterend",`<button class="normalBtn">Install PWA</button>`);
     // console.log(document.getElementsByClassName("normalBtn")[0]);
 }
 

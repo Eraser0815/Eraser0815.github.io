@@ -17,7 +17,7 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-    console.log("sw fetch EVENT: ",event);
+    console.log("sw fetch EVENT: ",event.request);
 
     event.respondWith((async () => {
         const cache = await caches.open(CACHE_NAME);
