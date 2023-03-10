@@ -1,9 +1,10 @@
 "use strict";
 const PWA = {
+    PWAInstallPromt : {}, // wird im 'beforeinstallprompt' handler befüllt.
     isInstalled : ()=>{return window.matchMedia('(display-mode: standalone)').matches},
     InstallButtonClick : (elem)=>{
         console.log("der Install Button wrude geklickt!!", elem);
-        PWA.PWAInstallPromt.promt();
+        PWA.PWAInstallPromt.prompt();
     }
 }
 const FILEHandel = {
@@ -62,6 +63,7 @@ const FILEHandel = {
     /* 6: Wenn die PWA installiert wurde */
     window.addEventListener('appinstalled', (e) => {
         console.log("PWA installiert!! ", e);
+        PWA.InstalledEvent = e;
        
     });
     /* 7: Der 'PWA install' Button der bei Schritt 5 erstellt wurde */
@@ -89,7 +91,7 @@ const FILEHandel = {
 
 window.onload = (e)=>{
     // console.log("Seite vollständig geladen", e);
-    document.getElementById("anzeige").insertAdjacentHTML("afterend",`<button class="normalBtn">Install PWA</button>`);
+    // document.getElementById("anzeige").insertAdjacentHTML("afterend",`<button class="normalBtn">Install PWA</button>`);
     // console.log(document.getElementsByClassName("normalBtn")[0]);
 }
 
