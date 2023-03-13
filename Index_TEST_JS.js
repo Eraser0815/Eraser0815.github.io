@@ -1,12 +1,16 @@
 "use strict";
 const PWA = {
     PWAInstallPromt : {}, // wird im 'beforeinstallprompt' handler befüllt.
-    isInstalled : ()=>{return window.matchMedia('(display-mode: standalone)').matches},
+    isInstalled : ()=>{
+        console.log("PWA.isInstalled() wir ausgeführt");
+        return window.matchMedia('(display-mode: standalone)').matches
+    },
     InstallButtonClick : (elem)=>{
         console.log("der Install Button wrude geklickt!!", elem);
         PWA.PWAInstallPromt.prompt();
     }
 }
+/* FILEHANDLER: speichern, laden und erstellen von Files:*/
 const FILEHandel = {
     url : "file:///C:/Users/MichasDESKTOP/Documents/TagebuchTEST/speicherTEST.txt",
     // url : "../Documents/TagebuchTEST",
@@ -41,7 +45,7 @@ const FILEHandel = {
     /* 1:  init*/   
     document.querySelectorAll("#btnwrapper button")[0].addEventListener("click",FILEHandel.init);
 
-    /* 2:  read file*/
+    /* 2:  read file Btn*/
     document.getElementById("CDbtn").addEventListener('click', FILEHandel.read);
 
     /* 3: BeforeUnloadEvent des Browsers. Um alles im File zu speichern */
@@ -52,7 +56,9 @@ const FILEHandel = {
 
     /* 5: beforeinstallpromt -> Bevor der user die PWA Installiert! */
     window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent the mini-infobar from appearing on mobile
+        /* Wird nicht aufgerufen wenn die PWA bereits intsalliert ist!!*/
+        
+        // Prevent the infobar from appearing.
         e.preventDefault();
         // für später speichern:
         PWA.PWAInstallPromt = e;
@@ -72,6 +78,8 @@ const FILEHandel = {
         // console.log('click on: ',e.target, e.target.matches('button.normalBtn'));
         e.target.matches('button.normalBtn') ? PWA.InstallButtonClick(e.target):console.log("war nicht der Button. sondern:",e.target);;
     });
+
+    /* 8: @Media change */
 
     
 }();

@@ -3,7 +3,7 @@
   "name": "Tradingdiray app",
   "short_name": "Tradingdiray",
   "description": "Ein Tradingjournal",
-  "start_url": "/",
+  "start_url": "/Landing_page.html",
   "background_color": "green",
   "theme_color": "#2f3d58",
   "orientation": "any",
