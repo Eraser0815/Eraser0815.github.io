@@ -25,8 +25,8 @@ self.addEventListener('fetch', event => {
         // Get the resource from the cache.
         const cachedResponse = await cache.match(event.request);
         if (cachedResponse) {
-            return cachedResponse;
             console.log("cache respondet!",cachedResponse);
+            return cachedResponse;
         } else {
             try {
                 // If the resource was not in the cache, try the network.
