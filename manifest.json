@@ -6,6 +6,7 @@
   "background_color": "gray",
   "theme_color": "#2f3d58",
   "orientation": "any",
+  "id" : "/Landing_page.html",
   
   "display": "standalone",
   "start_url": "/Landing_page.html",
@@ -18,7 +19,7 @@
   ],
 
   "protocol_handlers": [{
-    "protocol": "diray",
+    "protocol": "web+diray",
     "url": "./?diaray=%s"
   }],
 
