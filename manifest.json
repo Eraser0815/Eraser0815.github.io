@@ -6,7 +6,6 @@
   "background_color": "gray",
   "theme_color": "#2f3d58",
   "orientation": "any",
-  "id" : "/Landing_page.html",
   
   "display": "standalone",
   "start_url": "/Landing_page.html",
@@ -14,7 +13,7 @@
   "file_handlers" : [
     {
       "action" : "/openFile",
-      "accept" : "*.diary"
+      "accept" : ".diary"
     }
   ],
 
