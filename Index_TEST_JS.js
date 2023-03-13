@@ -17,7 +17,7 @@ const FILEHandel = {
     init : async function(){    
         // Erstellen der Handler für Directory und DBTrade. DBTrades wird erstellt falls nicht vorhanden.
         FILEHandel.Directory = await window.showDirectoryPicker({mode: "readwrite", startIn: "documents"});
-        FILEHandel.DBTrades = await FILEHandel.Directory.getFileHandle("meinFile.csv",{create:true});
+        FILEHandel.DBTrades = await FILEHandel.Directory.getFileHandle("Tagebuch-FxFlat.diary",{create:true});
     },
     create : async function(){
         
@@ -35,7 +35,7 @@ const FILEHandel = {
         saveHandle.write(JSON.stringify(data));
         saveHandle.close();
         
-       window.alert("saving data....", JSON.stringify(data));
+       console.log("saving data....", JSON.stringify(data));
     }
 }; 
 
@@ -80,7 +80,7 @@ const FILEHandel = {
     });
 
     /* 8: @Media change */
-
+    window.matchMedia("(display-mode: Standalone)")
     
 }();
 

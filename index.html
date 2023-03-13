@@ -29,7 +29,7 @@
         <button>Open last diary</button>
         <button id="CDbtn">create Directory</button>
         <button id="savebtn">safe to file</button>
-        <!-- <button>load from cache</button> -->
+        <a href="diary://derTextvomLink" target="_blank">Open PWA</a>
     </span>
 
     <style>
@@ -81,8 +81,8 @@
         
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js', { scope: '/' })
-            .then(a => document.getElementById("anzeige").innerHTML = "Service worker registriert!!");
-            console.log("Service worker registriert!!");
+            .then(a=>{console.log("Service worker registered scope: ", a, a.scope);});
+            
         }
     </script>
     

@@ -3,17 +3,32 @@
   "name": "Tradingdiray app",
   "short_name": "Tradingdiray",
   "description": "Ein Tradingjournal",
-  "start_url": "/Landing_page.html",
-  "background_color": "green",
+  "background_color": "gray",
   "theme_color": "#2f3d58",
   "orientation": "any",
+  
   "display": "standalone",
+  "start_url": "/Landing_page.html",
+  "scope": "/",
+  "file_handlers" : [
+    {
+      "action" : "/openFile",
+      "accept" : "*.diary"
+    }
+  ],
+
+  "protocol_handlers": [{
+    "protocol": "diray",
+    "url": "./?diaray=%s"
+  }],
+
   "icons": [
     {
       "src": "Icons/TagebucIcon_transparent_256px.png",
       "sizes": "256x256"
     }
   ],
+  
   "permissions": ["clipboardRead"]
 }
 
