@@ -8,15 +8,9 @@
   "orientation": "any",
   
   "display": "standalone",
-  "start_url": "/index.html",
+  "start_url": "/Tagebuch-Wrapper_GIT.html",
   "scope": "https://eraser0815.github.io/",
-  "file_handlers" : [
-    {
-      "action" : "/openFile",
-      "accept" : ".diary"
-    }
-  ],
-
+  
   "protocol_handlers": [{
     "protocol": "web+diray",
     "url": "./?diaray=%s"

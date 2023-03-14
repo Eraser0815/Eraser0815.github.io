@@ -9,28 +9,25 @@
     <meta name="description" content="Ein modernes Web basiertes Trading Journal." />
     
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; "/> -->
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()"> <!-- um 'Joomla! (das ist für Werbung) zu blockieren -> Depracted anyway '-->
+    <!-- <meta http-equiv="Permissions-Policy" content="interest-cohort=()"> um 'Joomla! (das ist für Werbung) zu blockieren -> Depracted anyway ' -->
     
     <link rel="shortcut icon" href="Icons/TagebucIcon_transparent_256px.png" />
-    <link rel="manifest" href="/manifest.json">
     
     <!-- <script type="text/javascript" src="IndexJS.js" defer></script>  -->
-    <script type="text/javascript" src="Index_TEST_JS.js" defer></script> 
+    <!-- <script type="text/javascript" src="Index_TEST_JS.js" defer></script>  -->
     <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
 </head>
 <body>
-    <div id="container">
-        <p>Das ist ein HTTPs Test für sw.js</p>
+    <div id="indexcontainer">
+        <H1>Das ist die 'Werbeseite'</H1>
+        <p>hier gelangt der User als erstes drauf und kann das Produkt erwerben.</p>
+        <p>Danach wird er zur 'Landing_page' weitergeleitet!</p>
     </div>
     <p id="anzeige"></p>
-    <textarea placeholder="BspText"></textarea>
     <span id="btnwrapper">
-        <button>Open last diary</button>
-        <button id="CDbtn">create Directory</button>
-        <button id="savebtn">safe to file</button>
-        <a href="diary://derTextvomLink" >Open PWA</a>
-        <a href="https://eraser0815.github.io/Landing_page.html" >Landingpage</a>
+        <!-- <a href="diary://derTextvomLink" >Open PWA</a> -->
+        <a href="https://eraser0815.github.io/Landing_page.html" >Tagebuch kaufen</a>
     </span>
 
     <style>
@@ -41,7 +38,7 @@
         }
 
 
-        #container, #anzeige {
+        #indexcontainer, #anzeige {
             text-align: center;
             font-weight: bold;
             font-size: 35px;
@@ -78,14 +75,6 @@
             margin-top: 5rem;
         }
     </style>
-    <script> // servicWorker registrieren:
-        
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js', { scope: '/' })
-            .then(a=>{console.log("Service worker registered scope: ", a, a.scope);});
-            
-        }
-    </script>
     
 </body>
 

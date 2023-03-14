@@ -6,14 +6,44 @@
 <!DOCTYPE html>
 <html lang="de-DE">
 <head>
+    <title>Document</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="author" content="Michael Ludolph" />
+    <meta name="description" content="Ein modernes Web basiertes Trading Journal." />
+
+    
+    
+    <script type="text/javascript" src="Landing_page.html" defer></script>
+    
+    <link rel="shortcut icon" href="Icons/TagebucIcon_transparent_256px.png" />
+    <link rel="manifest" href="/manifest.json">
+
 </head>
 <body>
     <H1>Landingpage </H1>
-    <p>Hier landet der user nach der Installation bzw. wenn die serial geprüft wurde und gültig ist \n.
-       Hier kann er sein Tagebuch (die Datei) wählen und wird dann zur 'Tagebuch-Wrapper.html' weitergeleitet</p>
+    <p>
+        Hier landet der user nach der Installation bzw. wenn die serial geprüft wurde und gültig ist \n.
+        Hier kann er sein Tagebuch (die Datei) wählen und wird dann zur 'Tagebuch-Wrapper.html' weitergeleitet
+    </p>
+    <p id="anzeige"></p>
+
+    <a href="diary://derTextvomLink" >Open PWA</a>
+
+<style>
+    body{
+        text-align: center;
+    }
+</style>
+<script> // servicWorker registrieren:
+        
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: "https://eraser0815.github.io/" })
+        .then(a=>{console.log("Service worker registered scope: ", a, a.scope);});
+        
+    }
+</script>
+
 </body>
 </html>
