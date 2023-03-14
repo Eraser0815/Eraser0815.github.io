@@ -8,8 +8,8 @@
   "orientation": "any",
   
   "display": "standalone",
-  "start_url": "/Landing_page.html",
-  "scope": "/",
+  "start_url": "/index.html",
+  "scope": "https://eraser0815.github.io/",
   "file_handlers" : [
     {
       "action" : "/openFile",
